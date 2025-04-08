@@ -6,8 +6,8 @@ import secrets  # Add this import for generating secure secret key
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)  # Generate a secure random secret key
 
-# API URL'ini Railway backend URL'i ile değiştir
-API_URL = "https://moodmap-backend.railway.app"  # Railway'dan aldığınız URL'i buraya yazın
+# Railway URL'ini kullan
+API_URL = "https://moodmap-backend-production.up.railway.app"  # Railway'den aldığınız URL'i buraya yazın
 
 # Dış IP'yi al
 def get_external_ip():
