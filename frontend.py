@@ -9,18 +9,6 @@ app.secret_key = secrets.token_hex(16)  # Generate a secure random secret key
 # Railway'deki backend URL'ini kullan
 API_URL = "https://moodmap-backend-production.up.railway.app"
 
-# Dış IP'yi al
-def get_external_ip():
-    try:
-        response = requests.get('https://api.ipify.org?format=json')
-        return response.json()['ip']
-    except:
-        return '0.0.0.0'
-
-# API URL'ini dinamik olarak ayarla
-EXTERNAL_IP = get_external_ip()
-API_URL = f"http://{EXTERNAL_IP}:8000" if EXTERNAL_IP != '0.0.0.0' else "http://localhost:8000"
-
 @app.route('/')
 def home():
     return render_template('cover.html')
